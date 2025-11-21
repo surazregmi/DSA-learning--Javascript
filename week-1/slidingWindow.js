@@ -28,4 +28,30 @@ function maxSumArray(array, k) {
 
 //test cases
 
-console.log(maxSumArray([2, 1, 5, 1, 3, 2], 3));
+console.log("Max sum of subarray is ", maxSumArray([2, 1, 5, 1, 3, 2], 3));
+
+// Find the length of the longest substring without repeating characters
+// String: "abcabcbb"
+//abc
+
+//Input: "abcbdefg" it must return 6 not 7. Keep in might it is saying continuous substring not a unique character.
+
+function uniqueLongestSubstring(string) {
+  let maxLength = 0,
+    start = 0;
+
+  let set = new Set();
+  for (end = 0; end < string.length; end++) {
+    while (set.has(string[end])) {
+      set.delete(string[start]);
+      start++;
+    }
+
+    set.add(string[end]);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+
+console.log(uniqueLongestSubstring("abcabcbb"));
