@@ -23,3 +23,20 @@ const twoSum = (arr, target) => {
 };
 
 console.log(twoSum([7, 11, 2, 15], 9));
+
+// Recap two sum
+const twosum = (arr, target) => {
+  const myMap = new Map();
+
+  for (i = 0; i < arr.length; i++) {
+    let diff = target - a[i];
+
+    if (a[i] < target) {
+      if (myMap.has(diff)) {
+        return [myMap.get(diff), i];
+      }
+
+      myMap.set(arr[i], i);
+    }
+  }
+};
