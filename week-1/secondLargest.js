@@ -19,3 +19,20 @@ function secondlargest(a) {
 }
 
 console.log(secondlargest([10, 4, 7, 34, 44, 25, 12, 9]));
+
+// recap secondlargest - 9th jan 2026
+const secondlargest = (arr) => {
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      secondLargest = largest;
+      largest = arr[i];
+    } else if (arr[i] > secondLargest && arr[i] < largest) {
+      arr[i] = secondLargest;
+    }
+  }
+
+  return secondLargest;
+};
